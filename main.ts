@@ -1,3 +1,17 @@
+function evaluate_guess (ans: string) {
+    for (let index = 0; index <= textList.length - 1; index++) {
+        if (ans == textList[index]) {
+            info.changeScoreBy(1)
+        } else if (ans != textList[index]) {
+            info.changeScoreBy(0)
+        }
+        if (info.score() >= 0) {
+        	
+        }
+    }
+}
+let textList: string[] = []
+info.setScore(0)
 scene.setBackgroundImage(img`
     3333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333
     3333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333
@@ -264,10 +278,17 @@ img`
     . . . . . . c c c c c c b b 4 . 
     `
 ]
-let text_list = [
+textList = [
 "apple",
 "strawberry",
 "cherry",
 "chicken",
 "lemon"
 ]
+for (let index = 0; index <= 4; index++) {
+    picnicFood.setImage(foodList[index])
+    pause(200)
+}
+picnicFood.destroy()
+let playerResponse = game.askForString("What was in Yogi's Basket?", 12)
+evaluate_guess(playerResponse)
